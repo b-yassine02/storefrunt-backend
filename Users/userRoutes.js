@@ -25,7 +25,7 @@ export default function UserRoutes(app) {
   const updateUser = async (req, res) => {
     const { userId } = req.params;
     const status = await userClient.updateUser(userId, req.body);
-    // currentUser = await userClient.findUserById(userId);
+    currentUser = await userClient.findUserById(userId);
     res.json(status);
   };
 
@@ -35,7 +35,7 @@ export default function UserRoutes(app) {
       res.status(400).json({ message: "Username already taken" });
     }
     const currentUser = await userClient.createUser(req.body);
-    // req.session["currentUser"] = currentUser;
+    req.session["currentUser"] = currentUser;
     res.sendStatus(200);
   };
 
@@ -46,7 +46,7 @@ export default function UserRoutes(app) {
       password
     );
     if (currentUser) {
-      // req.session["currentUser"] = currentUser;
+      req.session["currentUser"] = currentUser;
       res.json(currentUser);
     } else {
       res.sendStatus(401);
@@ -54,7 +54,7 @@ export default function UserRoutes(app) {
   };
 
   const signout = (req, res) => {
-    // req.session.destroy();
+    req.session.destroy();
     res.sendStatus(200);
   };
 

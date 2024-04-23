@@ -9,6 +9,7 @@ import AdminRoutes from "./Admins/adminRoutes.js";
 import ProfileRoutes from "./Profiles/profileRoutes.js";
 import PostRoutes from "./Posts/postRoutes.js";
 import CommentRoutes from "./Comments/commentRoutes.js";
+import { access } from "fs";
 
 const CONNECTION_STRING =
   process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/storefrunt";
@@ -20,6 +21,9 @@ app.use(
   cors({
     credentials: true,
     origin: process.env.FRONTEND_URL,
+    accessControlAllowOrigin: process.env.FRONTEND_URL,
+    accessControlAllowMethods: "GET, POST, PUT, DELETE",
+    accessControlAllowHeaders: "Content-Type",
   })
 );
 
