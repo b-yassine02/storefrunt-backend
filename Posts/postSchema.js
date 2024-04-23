@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema(
   {
-    user_id: { type: String, required: true, unique: true },
+    user_id: { type: String, required: true },
     post_title: String,
     post_description: String,
     post_image: String,

@@ -9,8 +9,7 @@ export const findAllPosts = () => postModel.find();
 
 export const findPostById = (postId) => postModel.findById(postId);
 
-export const findPostByUserId = (userId) =>
-  postModel.findOne({ user_id: userId });
+export const findPostByUserId = (userId) => postModel.find({ user_id: userId });
 
 export const updatePost = (postId, post) =>
   postModel.updateOne({ _id: postId }, { $set: post });
