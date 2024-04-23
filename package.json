@@ -1,0 +1,37 @@
+{
+  "type": "module",
+  "name": "storefrunt-backend",
+  "version": "1.0.0",
+  "description": "Backend for Storefrunt",
+  "main": "App.js",
+  "scripts": {
+    "start": "node App.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b-yassine02/storefrunt-backend.git"
+  },
+  "keywords": [
+    "Node",
+    "REST",
+    "Server",
+    "HTTP",
+    "Web",
+    "Development",
+    "CS4550"
+  ],
+  "author": "Storefrunt Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/b-yassine02/storefrunt-backend/issues"
+  },
+  "homepage": "https://github.com/b-yassine02/storefrunt-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.3.2"
+  }
+}
