@@ -22,6 +22,18 @@ export default function UserRoutes(app) {
     res.json(user);
   };
 
+  const findUserByUsername = async (req, res) => {
+    const user = await userClient.findUserByUsername(req.params.username);
+    res.json(user);
+  };
+
+  const findUserByEmailAddress = async (req, res) => {
+    const user = await userClient.findUserByEmailAddress(
+      req.params.emailAddress
+    );
+    res.json(user);
+  };
+
   const updateUser = async (req, res) => {
     const { userId } = req.params;
     const status = await userClient.updateUser(userId, req.body);
@@ -37,7 +49,7 @@ export default function UserRoutes(app) {
     }
     const currentUser = await userClient.createUser(req.body);
     req.session["currentUser"] = currentUser;
-    res.sendStatus(200);
+    res.json(currentUser);
   };
 
   const signin = async (req, res) => {
@@ -71,6 +83,8 @@ export default function UserRoutes(app) {
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
+  app.get("/api/users/username/:username", findUserByUsername);
+  app.get("/api/users/email/:emailAddress", findUserByEmailAddress);
   app.put("/api/users/:userId", updateUser);
   app.delete("/api/users/:userId", deleteUser);
   app.post("/api/users/signup", signup);

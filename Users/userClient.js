@@ -12,6 +12,9 @@ export const findUserById = (userId) => userModel.findById(userId);
 export const findUserByUsername = (username) =>
   userModel.findOne({ username: username });
 
+export const findUserByEmailAddress = (emailAddress) =>
+  userModel.findOne({ emailAddress: emailAddress });
+
 export const findUserByCredentials = (username, password) =>
   userModel.findOne({ username, password });
 
