@@ -25,7 +25,8 @@ export default function UserRoutes(app) {
   const updateUser = async (req, res) => {
     const { userId } = req.params;
     const status = await userClient.updateUser(userId, req.body);
-    currentUser = await userClient.findUserById(userId);
+    const currentUser = await userClient.findUserById(userId);
+    req.session["currentUser"] = currentUser;
     res.json(status);
   };
 
